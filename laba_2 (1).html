@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+
+<script>
+    // Функция для возведения числа в степень
+    function exponentiation() {
+        let base = parseFloat(prompt('Введите число для возведения в степень:'));
+        if (isNaN(base)) {  //проверка является введеное значение числом
+            alert('Неверный Ввод. Пожалуйста введите правильное число.');
+            exponentiation();
+            return;
+        }
+
+        let exponent = parseFloat(prompt('Введите степень:'));
+        if (isNaN(exponent)) { //проверка является введеное значение числом
+            alert('Неверный Ввод. Пожалуйста введите правильное число.');
+            exponentiation();
+            return;
+        }
+
+        let result = Math.pow(base, exponent); // возведение в степень
+        alert('Result: ' + result);
+    }
+
+    // Функция для вызова операции возведения в степень
+    function performExponentiation() {
+        exponentiation();
+    }
+
+    // Главная функция, запускающая калькулятор
+    function startCalculator() {
+        let input;
+        while (input !== 'stop') {
+            input = prompt('Введите любое слово, чтобы начать, или введите «stop», чтобы завершить калькулятор:');
+            if (input == 'stop') {
+                alert("Работа программы завершена.");
+                break;
+            }
+            else {
+                performExponentiation()
+            }
+        } 
+    }
+
+    // Запуск калькулятора
+    startCalculator();
+</script>
+
+</body>
+</html>
